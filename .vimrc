@@ -117,7 +117,7 @@ inoremap jj <esc>
 nnoremap <space> :
 
 "open file under cursor
-nnoremap <leader>f yiw :cs f find <c-r>" <CR>
+nnoremap <leader>f yiw :cs find f <c-r>" <CR>
 "search for global under cursor
 nnoremap <leader>g yiw:cs find g <c-r>" <CR>
 "search for string word under cursor
