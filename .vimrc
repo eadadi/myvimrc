@@ -117,12 +117,13 @@ inoremap jj <esc>
 nnoremap <space> :
 
 "open file under cursor
-nnoremap <leader>f yiw :cs f f <c-r>" <CR>
-
+nnoremap <leader>f yiw :cs f find <c-r>" <CR>
 "search for global under cursor
-nnoremap <leader>g yiw:cs f g <c-r>" <CR>
+nnoremap <leader>g yiw:cs find g <c-r>" <CR>
 "search for string word under cursor
-nnoremap <leader>e yiw:cs f e <c-r>" <CR>
+nnoremap <leader>e yiw:cs find e <c-r>" <CR>
+"search for calling functions for word under cursor
+nnoremap <leader>e yiw:cs find c <c-r>" <CR>
 
 "F2 will resize current window to 10 lines (meant to use on the navigation
 "window)
