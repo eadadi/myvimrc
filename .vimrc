@@ -138,3 +138,6 @@ nnoremap <C-o> <C-m>
 
 "map - to not enter edit mode
 nnoremap - -<esc>
+
+"Show commands on status line
+set showcmd
