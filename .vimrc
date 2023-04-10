@@ -99,7 +99,7 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 "Some display settings
-colorscheme monokai
+"colorscheme monokai
 "Highlight horizontal and vertical line over cursor
 set cursorline
 set incsearch
@@ -125,19 +125,22 @@ nnoremap <leader>e yiw:cs find e <c-r>" <CR>
 "search for calling functions for word under cursor
 nnoremap <leader>c yiw:cs find c <c-r>" <CR>
 
-"F2 will resize current window to 10 lines (meant to use on the navigation
-"window)
-"
+"F2 to resize current window to 10 lines 
+"leader-F2 will do the same horizontalyl
 map <F2> :res 10<CR>
+map <leader><F2> :vertical res 50<CR>
 
 "F3 to edit vimrc
 map <F3> :e $HOME/.vim/.vimrc <CR>
 
-"Remap moving to last cursor position
-nnoremap <C-o> <C-m>
+"F4 To turn off highlight on search
+map <F4> :nohl<CR>
 
-"map - to not enter edit mode
-nnoremap - -<esc>
+"leader+w to see changes in current file
+nnoremap <leader>w :w !diff % - <CR>
 
 "Show commands on status line
 set showcmd
+
+"use relativenumbers
+set number relativenumber
