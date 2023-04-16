@@ -27,9 +27,6 @@ set hlsearch
 "Use cscope database variable
 cs add $CSCOPE_DB
 
-"jj in insermode -> esc
-inoremap jj <esc>
-
 "Space in normalmode -> :
 nnoremap <space> :
 
@@ -49,9 +46,6 @@ map <leader><F2> :vertical res 50<CR>
 
 "F3 to edit vimrc
 map <F3> :e $HOME/.vim/.vimrc <CR>
-
-"F4 To turn off highlight on search
-map <F4> :nohl<CR>
 
 "leader+w to see changes in current file
 nnoremap <leader>w :w !diff % - <CR>
