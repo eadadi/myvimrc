@@ -1,0 +1,8 @@
+*.bin
+tags
+cscope
+*.d
+*.map
+*.mk
+*.objdump
+*.su
