@@ -7,6 +7,7 @@ filetype plugin on
 set path+=.
 set path=*
 set path+=**
+set complete-=i "This makes vim autocomplete avoid searching in included files
 
 set wildmenu
 set wildignore=*.o,*.obj,*.axf,*.bin,*.pdf,*.su,*.src,*.d,*.map,*.objdump,*.zip,*.elf,*.ld,*.mk,*.swp
