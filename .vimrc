@@ -4,14 +4,18 @@ set nocompatible
 syntax enable
 filetype plugin on
 
-set path+=.
 set path=*
+set path+=.
 set path+=**
 set complete-=i "This makes vim autocomplete avoid searching in included files
 
 set wildmenu
-set wildignore=*.o,*.obj,*.axf,*.bin,*.pdf,*.su,*.src,*.d,*.map,*.objdump,*.zip,*.elf,*.ld,*.mk,*.swp
+set wildignore+=*.o,*.obj,*.axf,*.bin,*.pdf,*.su,*.src,*.d,*.map,*.objdump,*.zip,*.elf,*.ld,*.mk,*.swp,tags
+set wildignore+=*.out
 set wildmode=list:longest,list:full
+
+"make sure backspace acts normal
+set backspace=indent,eol,start
 
 "set background=dark
 
@@ -25,11 +29,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
+Plug 'lervag/vimtex'
 call plug#end()
 
 "Some display settings
-"colorscheme monokai
-"Highlight horizontal and vertical line over cursor
+colorscheme desert
 set cursorline
 set incsearch
 set smartcase
@@ -40,7 +44,7 @@ set hlsearch
 if has("cscope") && filereadable("/usr/bin/cscope")
    set csprg=/usr/bin/cscope
    set csto=0
-   set cst
+   "set cst
    set nocsverb
    " add any database in current directory
    if filereadable("cscope.out")
@@ -91,9 +95,16 @@ set grepprg=ag
 " Using --hidden to allow searching hidden directories like .github
 " The --hidden still respects .ignore where we ignore things like .git
 " NOTE: you need --path-to-ignore ~/.ignore otherwise ag only uses local ignore ./.ignore
-map <leader>f :FZF!<CR>
-map <leader>b :Buffers!<CR>
+map <leader>f :FZF<CR>
+map <leader>b :Buffers?<CR>
 map <leader>G :GFiles!?<CR>
-map <leader>w :Windows!<CR>
-map <leader>t :Ag!<CR>
+map <leader>w :Windows<CR>
+map <leader>t :Ag<CR>
+map <leader><leader>c :!repo_init<CR>:cs reset<CR>
 
+"This map does the following: yank the word the cursor is on, then open a new
+"tab and go to for the yank word as a tag
+map <leader>] yiw:tabnew<CR>:tag <C-r>"<CR>
+
+"vimlatex config
+let g:vimtex_view_method = 'zathura'
