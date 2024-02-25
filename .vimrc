@@ -108,3 +108,15 @@ map <leader>] yiw:tabnew<CR>:tag <C-r>"<CR>
 
 "vimlatex config
 let g:vimtex_view_method = 'zathura'
+
+"quick copy a line to system clipboard
+"map <leader>y :call setreg('+', getline('.'))<CR>
+nnoremap <leader>y :<C-u>call setreg('+',
+			\ getline('.', line('.') + v:count1 - 1), 'v')<CR>
+
+
+"quick copy a line to system clipboard, but close window afterwards
+"map <leader><leader>y :call setreg('+', getline('.'))<CR>:exit<CR>
+nnoremap <leader><leader>y :<C-u>call setreg('+',
+			\ getline('.', line('.') + v:count1 - 1), 'v')<CR>:exit<CR>
+
